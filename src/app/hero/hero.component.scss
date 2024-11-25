@@ -1,5 +1,6 @@
 .hero {
     height: 100vh;
+    width: 100vw;
     background-image: url('../../assets/img/backgrounds/background_first_section.svg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -7,7 +8,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
     color: #ffffff;
 
     .navbar {
@@ -18,6 +20,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
+            padding-right: 96px;
         }
 
         .nav-links {
@@ -35,13 +38,13 @@
         .navbar-left-content {
             display: flex;
             align-items: center;
+            padding-left: 96px;
         }
 
         .language-switch {
             button {
                 background: none;
                 border: none;
-                margin-left: 10px;
 
                 &:hover {
                     cursor: pointer;
@@ -60,14 +63,26 @@
         text-align: center;
         margin-top: 50px;
 
+        p {
+            margin: 0;
+        }
+
         .subtitle {
             margin-bottom: 10px;
         }
 
-        h1 {
-            font-size: 4rem;
-            margin: 0;
-            color: #ffffff;
+        .job {
+            font-family: 'Fira Code', sans-serif;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 40px;
+        }
+
+        .name {
+            font-family: 'Karla', sans-serif;
+            font-weight: 700;
+            font-size: 128px;
+            line-height: 128px;
         }
 
         .buttons {
@@ -91,11 +106,23 @@
         }
     }
 
-    .hero-footer {
-        text-align: center;
-        font-size: 0.9rem;
-        margin-top: 20px;
-        color: #d3d3d3;
+    .hero-marquee {
+        display: flex;
+        justify-content: center;
+    }
+
+    .bottom-section-hero-component {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .scroll-icon {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 24px;
+        padding-left: 96px;
     }
 
     .social-links {
@@ -103,6 +130,7 @@
         flex-direction: column;
         align-items: flex-end;
         gap: 10px;
+        padding-right: 96px;
 
         a {
             color: #00ffab;
@@ -115,9 +143,11 @@
         }
 
         p {
+            transform: rotate(270deg);
+            transform-origin: left center;
+            white-space: nowrap;
             margin: 0;
-            font-size: 0.9rem;
-            color: #d3d3d3;
+            font-size: 14px;
         }
     }
 }

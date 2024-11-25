@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Fira Code';
+    src: url('/portfolio/src/assets/fonts/fira_code/FiraCode-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Karla';
+    src: url('/portfolio/src/assets/fonts/karla/Karla-VariableFont_wght.ttf') format('truetype'),
+        url('/portfolio/src/assets/fonts/karla/Karla-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal, italic;
+}
+
+
+html,
+body {
+    margin: 0;
+    background-color: black;
+}
