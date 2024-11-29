@@ -318,6 +318,10 @@
                 height: 22px;
                 gap: 50px;
 
+                &:hover{
+                    color: rgba(61, 207, 182, 1);
+                }
+
                 p {
                     font-size: 18px;
                     font-weight: 400;
