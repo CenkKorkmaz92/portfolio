@@ -1,8 +1,15 @@
+.wrapper {
+    width: 1440px; // Fixed width for the base layout
+    margin: 0 auto; // Center content horizontally on the screen
+    padding: 0;
+    box-sizing: border-box; // Ensure padding/borders don't affect the set width
+}
+
 .hero {
     display: flex;
     flex-direction: column;
-    height: 900px;
-    width: 100%;
+    height: 900px; // Fixed height
+    width: 100%; // Full width of the wrapper
     background-image: url('../../assets/img/backgrounds/background_first_section.svg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -12,13 +19,12 @@
     color: white;
     overflow: hidden;
 
-
     .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 98px;
-      
+
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
@@ -26,9 +32,16 @@
         }
 
         .nav-links {
+            font-family: 'Fira Code', sans-serif;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 26.24px;
             list-style: none;
             display: flex;
-            gap: 20px;
+            justify-content: space-around;
+            gap: 24px;
+            width: 409px;
+            height: 28px;
 
             li a {
                 &:hover {
@@ -95,32 +108,93 @@
             justify-content: center;
             gap: 48px;
 
+            .btn-primary {
+                width: 172px;
+            }
+
+            .btn-secondary {
+                width: 143px;
+            }
+
             .btn-primary,
             .btn-secondary {
-                background: none;
-                border: none;
+                background: transparent;
+                border: 1px solid white;
+                color: white;
                 cursor: pointer;
+                height: 48px;
+                border-radius: 100px;
+                font-family: 'Karla', sans-serif;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 48px;
+                text-align: center;
+                transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+                overflow: hidden;
+                position: relative;
+            }
 
-                img {
-                    display: block;
-                    width: auto;
-                    height: auto;
+            .btn-primary:hover,
+            .btn-secondary:hover {
+                border-color: rgba(61, 207, 182, 1);
+                color: rgba(61, 207, 182, 1);
+            }
+
+            .btn-primary span,
+            .btn-secondary span {
+                display: inline-block;
+                white-space: nowrap;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) translateX(0);
+                transition: transform 0.3s ease;
+            }
+
+            .btn-primary:hover span,
+            .btn-secondary:hover span {
+                animation: scrollLoop 3s linear infinite;
+            }
+
+            @keyframes scrollLoop {
+                0% {
+                    transform: translate(-50%, -50%) translateX(0);
+                    visibility: visible;
+                }
+
+                49% {
+                    transform: translate(-50%, -50%) translateX(-130%);
+                    visibility: hidden;
+                }
+
+                50% {
+                    transform: translate(-50%, -50%) translateX(130%);
+                    visibility: hidden;
+                }
+
+                51% {
+                    visibility: visible;
+                }
+
+                100% {
+                    transform: translate(-50%, -50%) translateX(0);
+                    visibility: visible;
                 }
             }
         }
+
     }
 
     .hero-marquee {
-        width: calc(100%);
+        width: 100%;
         height: 38px;
         transform: translateX(-8px) rotate(-3deg);
-        padding: 12px 32px 12px 32px;
+        padding: 12px 32px;
         position: absolute;
         top: 798px;
         display: flex;
-        justify-content: center;
+        overflow: hidden;
         align-items: center;
-        gap: 56px;
         background: rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(5.3px);
         font-size: 22px;
@@ -128,14 +202,34 @@
         line-height: 38.4px;
         font-family: 'Karla', sans-serif;
         color: #00ffab;
+
+        &>div {
+            display: flex;
+            gap: 100px;
+            position: relative;
+            animation: marqueeScroll 5s linear infinite;
+        }
+
+        &>div p {
+            white-space: nowrap;
+            margin: 0;
+            flex-shrink: 0;
+        }
     }
 
+    @keyframes marqueeScroll {
+        0% {
+            transform: translateX(140%);
+        }
 
+        100% {
+            transform: translateX(-100%);
+        }
+    }
 
     .bottom-section-hero-component {
         display: flex;
         justify-content: space-between;
-
 
         .scroll-icon {
             display: flex;
