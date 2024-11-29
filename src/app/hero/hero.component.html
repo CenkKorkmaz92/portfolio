@@ -2,11 +2,16 @@
     <nav class="navbar">
         <div class="navbar-left-content">
             <div class="language-switch">
-                <button>
-                    <img src="../../assets/img/translation_btn/default_translation_btn_EN.svg"
-                        alt="Language switch button" class="nav-img-translate-btn-EN">
+                <button class="lang-button" [ngClass]="{ 'active': selectedLanguage === 'EN' }"
+                    (click)="setLanguage('EN')">
+                    <span class="lang-text">EN</span>
+                </button>
+                <button class="lang-button" [ngClass]="{ 'active': selectedLanguage === 'DE' }"
+                    (click)="setLanguage('DE')">
+                    <span class="lang-text">DE</span>
                 </button>
             </div>
+
             <ul class="nav-links">
                 <li><a routerLink="/about">About</a></li>
                 <li><a routerLink="/skills">Skills</a></li>
@@ -54,10 +59,10 @@
             <div class="rotated-mail">
                 <p>Cenk.Korkmaz&#64;gmail.com</p>
             </div>
-            <a href="https://github.com" target="_blank">
+            <a href="https://github.com" target="_blank" class="social-icon github">
                 <img src="../../assets/img/icons/github_icon_default.svg" alt="GitHub Icon">
             </a>
-            <a href="https://linkedin.com" target="_blank">
+            <a href="https://linkedin.com" target="_blank" class="social-icon linkedin">
                 <img src="../../assets/img/icons/linkedin_icon_default.svg" alt="LinkedIn Icon">
             </a>
             <img src="../../assets/img/icons/vector_grey_right_side.svg" alt="Right vector icon">
