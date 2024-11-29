@@ -1,15 +1,8 @@
-.wrapper {
-    width: 1440px; // Fixed width for the base layout
-    margin: 0 auto; // Center content horizontally on the screen
-    padding: 0;
-    box-sizing: border-box; // Ensure padding/borders don't affect the set width
-}
-
 .hero {
+    width: 1440px;
     display: flex;
     flex-direction: column;
     height: 900px; // Fixed height
-    width: 100%; // Full width of the wrapper
     background-image: url('../../assets/img/backgrounds/background_first_section.svg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -186,14 +179,13 @@
     }
 
     .hero-marquee {
-        width: 100%;
+        width: 1416px;
         height: 38px;
         transform: translateX(-8px) rotate(-3deg);
         padding: 12px 32px;
-        position: absolute;
+       position:fixed;
         top: 798px;
         display: flex;
-        overflow: hidden;
         align-items: center;
         background: rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(5.3px);
@@ -202,12 +194,14 @@
         line-height: 38.4px;
         font-family: 'Karla', sans-serif;
         color: #00ffab;
+        overflow: hidden;
+        z-index: 999;
 
         &>div {
             display: flex;
             gap: 100px;
             position: relative;
-            animation: marqueeScroll 5s linear infinite;
+            animation: marqueeScroll 30s linear infinite;
         }
 
         &>div p {
@@ -219,7 +213,7 @@
 
     @keyframes marqueeScroll {
         0% {
-            transform: translateX(140%);
+            transform: translateX(100%);
         }
 
         100% {
