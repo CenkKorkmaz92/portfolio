@@ -179,11 +179,11 @@
     }
 
     .hero-marquee {
-        width: 1416px;
+        width: 1400px;
         height: 38px;
         transform: translateX(-8px) rotate(-3deg);
         padding: 12px 32px;
-       position:fixed;
+        position: fixed;
         top: 798px;
         display: flex;
         align-items: center;
@@ -256,4 +256,55 @@
             }
         }
     }
+
+    .scroll-arrow-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 48px;
+        cursor: pointer;
+        overflow: hidden;
+        border: solid 1px rgba(61, 207, 182, 1);
+        border-radius: 32px;
+        box-sizing: border-box;
+    }
+
+    .scroll-arrow {
+        position: relative;
+        width: 2px; // Shaft width
+        height: 12px; // Shaft height
+        background-color: rgba(255, 255, 255, 1); // Shaft color (white)
+        margin-top: 0px; // Adjusted to position the arrow visually centered
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 45%; // Place arrowhead at the bottom of the shaft
+            left: 50%;
+            transform: translateX(-50%) rotate(225deg); // Rotate to point the arrowhead down
+            width: 6px; // Arrowhead size
+            height: 6px; // Arrowhead size
+            border-left: 2px solid rgba(255, 255, 255, 1); // Left line of arrowhead
+            border-top: 2px solid rgba(255, 255, 255, 1); // Top line of arrowhead
+        }
+
+        animation: arrowBounce 1s ease-in-out infinite; // Bounce animation for the entire arrow
+    }
+
+    @keyframes arrowBounce {
+
+        0%,
+        100% {
+            transform: translateY(0); // Default position
+        }
+
+        50% {
+            transform: translateY(5px); // Move down by 5px
+        }
+    }
+
+
+
+
 }
