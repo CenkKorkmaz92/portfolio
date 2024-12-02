@@ -1,19 +1,23 @@
 @font-face {
     font-family: 'Fira Code';
-    src: url('assets/fonts/fira_code/FiraCode-VariableFont_wght.ttf') format('truetype');
+    src: url('/assets/fonts/fira_code/FiraCode-VariableFont_wght.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Karla';
+    src: url('/assets/fonts/karla/Karla-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @font-face {
     font-family: 'Karla';
-    src: url('/portfolio/src/assets/fonts/karla/Karla-VariableFont_wght.ttf') format('truetype'),
-        url('/portfolio/src/assets/fonts/karla/Karla-Italic-VariableFont_wght.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: normal, italic;
+    src: url('/assets/fonts/karla/Karla-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
 }
-
 
 html,
 body {
