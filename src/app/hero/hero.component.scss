@@ -19,6 +19,7 @@
         height: 98px;
 
         .logo {
+            font-family: 'Karla', sans-serif;
             font-size: 1.5rem;
             font-weight: bold;
             padding-right: 96px;
@@ -251,7 +252,7 @@
         transform: translateX(-8px) rotate(-3deg);
         padding: 12px 32px;
         position: fixed;
-        top: 798px;
+        top: 785px;
         display: flex;
         align-items: center;
         background: rgba(255, 255, 255, 0.12);
@@ -318,7 +319,7 @@
                 height: 22px;
                 gap: 50px;
 
-                &:hover{
+                &:hover {
                     color: rgba(61, 207, 182, 1);
                 }
 
@@ -336,16 +337,16 @@
 
                 img {
                     transition: all 0.3s ease-in-out;
-        
+
                     &:hover {
                         transform: scale(1.1);
                     }
                 }
-        
+
                 &.github img:hover {
                     content: url('../../assets/img/icons/github_icon_hover.svg');
                 }
-        
+
                 &.linkedin img:hover {
                     content: url('../../assets/img/icons/linkedin_icon_hover.svg');
                 }

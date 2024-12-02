@@ -1,0 +1,70 @@
+.about-section {
+    width: 100%;
+    max-height: 900px;
+    border: 1px solid turquoise;
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: rgb(28, 28, 28);
+
+    .about-me {
+        display: flex;
+        justify-content: space-between;
+        width: 1232.35px;
+        height: 708px;
+        padding-top: 144px;
+    }
+
+    .who-i-am {
+        font-family: 'Karla', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28.06px;
+    }
+
+    .who-i-am-section {
+        display: flex;
+        flex-direction: column;
+        width: 568px;
+        height: 610px;
+        padding-top: 98px;
+        gap: 20px;
+        color: rgba(61, 207, 182, 1);
+    }
+
+    .profile-picture {
+        width: 568px;
+        height: 568px;
+    }
+
+    .about-me-description {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(61, 207, 182, 1);
+        background-color: rgba(61, 207, 182, 0.1);
+        border-radius: 30px;
+        padding: 32px;
+        gap: 40px;
+        color: white;
+    }
+
+    .headline-about-me {
+        font-size: 64px;
+        font-weight: 700;
+        font-family: 'Fira Code', sans-serif;
+        color: rgba(61, 207, 182, 1);
+    }
+
+    .icons-with-text-main-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .icons-with-text-container {
+        display: flex;
+        align-items: flex-start;
+        width: 504px;
+        gap: 24px;
+    }
+}
