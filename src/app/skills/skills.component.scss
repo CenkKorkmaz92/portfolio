@@ -1,26 +1,24 @@
 .skills-section {
+    display: flex;
     width: 100%;
     height: 695px;
-    background-image: url('../../assets/img/backgrounds/bg-skills.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url('../../assets/img/backgrounds/bg-skills.svg') center/cover no-repeat;
     padding-top: 144px;
 }
 
 .skill-set-description {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    height: 568px;
+    justify-content: space-between;
     width: 520px;
-    border: 1px solid rgba(61, 207, 182, 1);
-    background-color: rgba(61, 207, 182, 0.1);
-    border-radius: 30px;
-    padding: 32px;
+    height: 568px;
+    padding: 23px;
     gap: 40px;
     color: white;
     font-family: 'Karla', sans-serif;
+    border: 1px solid rgba(61, 207, 182, 1);
+    background-color: rgba(61, 207, 182, 0.1);
+    border-radius: 30px;
 }
 
 .headline-skill-set {
@@ -44,8 +42,8 @@
     width: 568px;
     height: 610px;
     gap: 20px;
-    color: rgba(61, 207, 182, 1);
     padding-left: 98px;
+    color: rgba(61, 207, 182, 1);
 }
 
 .subline-another-skill {
@@ -53,40 +51,40 @@
 }
 
 .buttons {
-    margin-top: 20px;
     display: flex;
     gap: 48px;
+    margin-top: 20px;
 
     .btn-secondary {
         width: 143px;
-        background: transparent;
-        border: 1px solid white;
-        color: white;
-        cursor: pointer;
         height: 48px;
-        border-radius: 100px;
         font-family: 'Karla', sans-serif;
-        font-weight: 400;
         font-size: 18px;
+        font-weight: 400;
         line-height: 48px;
         text-align: center;
-        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-        overflow: hidden;
+        color: white;
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 100px;
+        cursor: pointer;
         position: relative;
+        overflow: hidden;
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     }
 
     .btn-secondary:hover {
-        border-color: rgba(61, 207, 182, 1);
         color: rgba(61, 207, 182, 1);
+        border-color: rgba(61, 207, 182, 1);
     }
 
     .btn-secondary span {
-        display: inline-block;
-        white-space: nowrap;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) translateX(0);
+        transform: translate(-50%, -50%);
+        display: inline-block;
+        white-space: nowrap;
         transition: transform 0.3s ease;
     }
 
@@ -95,7 +93,9 @@
     }
 
     @keyframes scrollLoop {
-        0% {
+
+        0%,
+        100% {
             transform: translate(-50%, -50%) translateX(0);
             visibility: visible;
         }
@@ -113,10 +113,45 @@
         51% {
             visibility: visible;
         }
+    }
+}
 
-        100% {
-            transform: translate(-50%, -50%) translateX(0);
-            visibility: visible;
+.coding-icons {
+    display: flex;
+    flex-direction: column;
+    width: 632px;
+    height: 428px;
+    gap: 72px;
+    padding: 48px 98px 0 64px;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 72px;
+
+    img {
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
         }
     }
+}
+
+.icons-bottom {
+    display: flex;
+    gap: 72px;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    gap: 8px;
+    text-align: center;
+    color: white;
+    font-family: 'Fira Code', sans-serif;
 }
