@@ -9,9 +9,10 @@
     .about-me {
         display: flex;
         justify-content: space-between;
-        width: 1232.35px;
+        width: 1274px;
         height: 708px;
         padding-top: 144px;
+        padding-right: 51px;
     }
 
     .who-i-am {
@@ -31,15 +32,40 @@
         color: rgba(61, 207, 182, 1);
     }
 
+    .profile-picture-container {
+        display: grid;
+        width: 620px;
+        height: 620px;
+        position: relative;
+    }
+
+    .profile-picture-bg {
+        grid-area: 1 / 1;
+        width: 568px;
+        height: 568px;
+        padding-top: 46px;
+        display: none;
+    }
+
     .profile-picture {
+        grid-area: 1 / 1;
         width: 568px;
         height: 568px;
         border-radius: 30px;
+        justify-self: end;
+        align-self: start;
+    }
+
+    .profile-picture-container:hover .profile-picture-bg,
+    .profile-picture-bg.visible {
+        display: block;
     }
 
     .about-me-description {
         display: flex;
+        justify-content: space-between;
         flex-direction: column;
+        height: 568px;
         border: 1px solid rgba(61, 207, 182, 1);
         background-color: rgba(61, 207, 182, 0.1);
         border-radius: 30px;

@@ -1,22 +1,27 @@
 <div class="about-section">
 
     <div class="about-me">
-        <div><img class="profile-picture" src="../../assets/img/me.jpg" alt=""></div>
+        <div class="profile-picture-container" (mouseover)="showBackground()">
+            <img id="profile-bg" class="profile-picture-bg" src="../../assets/img/me_background.svg" alt="Background">
+            <img class="profile-picture" src="../../assets/img/me.jpg" alt="Profile Picture">
+        </div>
+
         <div class="who-i-am-section">
             <div class="who-i-am"><span>Who I Am</span></div>
             <div class="about-me-description">
                 <span class="headline-about-me">About me</span>
                 <div>
                     <span>
-                        Hi, I’m a german speaking Frontend Developer based in Sulzbach an der Murr. Motivated by the limitless
+                        Hi, I’m a german speaking Frontend Developer based in Sulzbach an der Murr. Motivated by the
+                        limitless
                         opportunities within IT, I am excited about crafting visually captivating and intuitive websites
                         and applications.
                     </span>
                 </div>
                 <div class="icons-with-text-main-container">
                     <div class="icons-with-text-container"><img src="../../assets/img/icons/location_icon.svg"
-                            alt=""><span>Flexible in terms of working
-                            environments, I can work effectively both on-site in Munich and remotely.</span>
+                            alt=""><span>Highly focused in terms of working, I can work effectively remote and on
+                            site.</span>
                     </div>
                     <div class="icons-with-text-container"><img src="../../assets/img/icons/head_icon.svg"
                             alt=""><span>I am open-minded and always
