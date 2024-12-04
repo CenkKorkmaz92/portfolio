@@ -149,9 +149,104 @@
     flex-direction: column;
     align-items: center;
     width: 64px;
-    height: 64px;
     gap: 8px;
     text-align: center;
     color: white;
     font-family: 'Fira Code', sans-serif;
+
+    img {
+        margin-bottom: 4px;
+    }
+
+    span {
+        margin-top: 4px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    &.growth-mindset {
+        position: relative;
+
+        .popup {
+            display: none;
+            position: absolute;
+            top: -140%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            background-color: white;
+            color: rgba(61, 207, 182, 1);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 10;
+
+            p {
+                margin: 0 0 8px 0;
+            }
+
+            .icons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                span {
+                    font-size: 12px;
+                }
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-width: 8px;
+                border-style: solid;
+                border-color: white transparent transparent transparent;
+            }
+
+            &.pulsing {
+                animation: pulse 1.5s infinite ease-in-out;
+            }
+        }
+
+        &:hover .popup {
+            display: block;
+            animation: pulse 1.5s infinite ease-in-out;
+
+        }
+
+        &:hover.icon {
+            color: rgba(61, 207, 182, 1);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: translateX(-50%) scale(1);
+        }
+
+        50% {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        100% {
+            transform: translateX(-50%) scale(1);
+        }
+    }
+
+}
+
+.pop-up-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
