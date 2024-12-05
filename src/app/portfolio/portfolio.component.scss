@@ -7,6 +7,7 @@
 
 .portfolio-container {
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     padding-left: 98px;
     width: 880px;
@@ -27,6 +28,7 @@ h1 {
     line-height: 64px;
     font-family: 'Fira Code', sans-serif;
     color: rgba(61, 207, 182, 1);
+    margin: 0;
 }
 
 .portfolio-description {
@@ -38,17 +40,42 @@ h1 {
 }
 
 .projects-container {
+    width: 800px;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     color: white;
     border-bottom: 1px solid rgba(61, 207, 182, 1);
+    border-top: 1px solid rgba(61, 207, 182, 1);
     padding: 40px 32px 40px 32px;
+    position: relative;
+
+    &:hover {
+        background-color: rgba(47, 91, 83);
+    }
 
     .project-headline {
+        display: flex;
         font-family: 'Fira Code', sans-serif;
         font-weight: 700;
         font-size: 24px;
         line-height: 28.8px;
+        position: relative;
+
+        img {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+    }
+
+    &:hover .project-headline img {
+        visibility: visible;
+        opacity: 1;
     }
 
     .skills-used-text {
@@ -59,7 +86,36 @@ h1 {
     }
 }
 
+
+.projects-container img {
+    display: none;
+}
+
+.projects-container:hover img {
+    display: block;
+}
+
 .vector-1 {
     display: flex;
     border: 1px solid rgba(61, 207, 182, 1);
+}
+
+.Projects-and-pop-up-container {
+    display: flex;
+    width: 950px;
+    position: relative;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    &:hover img {
+        visibility: visible;
+        opacity: 1;
+    }
 }
