@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Project } from '../project.model'; // adjust path if needed
+import { Project } from '../project.model';
 
 @Component({
   selector: 'app-project-modal',

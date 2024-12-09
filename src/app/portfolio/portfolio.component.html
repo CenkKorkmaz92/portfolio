@@ -8,10 +8,9 @@
         </span>
         <div>
             <div class="Projects-and-pop-up-container" *ngFor="let project of projects" (click)="openModal(project)">
-
                 <div class="projects-container">
                     <div class="project-headline">
-                        {{ project.title }}<img src="../../assets/img/icons/arrow_outward.svg" alt="">
+                        {{ project.title }}<img src="assets/img/icons/arrow_outward.svg" alt="">
                     </div>
                     <div class="skills-used-text">
                         <ng-container *ngFor="let tech of project.technologies; let last=last">
@@ -20,9 +19,9 @@
                         </ng-container>
                     </div>
                 </div>
-
                 <img [src]="project.imageUrl" alt="{{ project.title }}">
             </div>
+
         </div>
     </div>
 

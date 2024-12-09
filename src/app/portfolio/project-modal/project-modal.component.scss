@@ -1,107 +1,180 @@
-// src/app/portfolio/project-modal/project-modal.component.scss
-$modal-bg: rgba(0, 0, 0, 0.7);
-$main-bg: #0f3d3e; 
-$highlight: #00ffcc; 
-$text-light: #fff;
+$highlight: #00ffcc;
+$text-color: #ffffff;
+$backdrop-color: rgba(0, 0, 0, 0.7);
+$modal-bg-image: "../../../assets/img/backgrounds/background_first_section.svg";
 
 .modal-backdrop {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: $modal-bg;
+  inset: 0;
+  background: $backdrop-color;
   backdrop-filter: blur(5px);
   z-index: 1000;
 }
 
 .modal-content {
   position: fixed;
-  top: 50%; left: 50%;
+  left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
-  background: $main-bg;
-  border-radius: 12px;
-  padding: 2rem;
-  color: $text-light;
   width: 80%;
-  max-width: 800px;
+  max-width: 1000px;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   z-index: 1001;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  color: $text-color;
+
+  // Background image setup
+  background-image: url(#{$modal-bg-image});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
   .close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
     background: none;
     border: none;
-    color: $text-light;
+    color: $text-color;
     font-size: 1.5rem;
-    position: absolute;
-    top: 1rem; right: 1rem;
-    cursor: pointer;
-  }
-
-  .modal-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-
-    .project-number {
-      font-size: 2rem;
-      color: $highlight;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin: 0;
-    }
-  }
-
-  .subtitle {
-    color: $highlight;
-    margin-top: 1rem;
-  }
-
-  .description {
-    margin: 1rem 0;
-  }
-
-  .technologies {
-    margin: 1rem 0;
-    span {
-      background: #1c1c1c;
-      padding: 0.3rem 0.5rem;
-      border-radius: 4px;
-      margin-right: 0.5rem;
-      font-size: 0.9rem;
-    }
-  }
-
-  .links {
-    margin: 1rem 0;
-    a {
-      color: $highlight;
-      text-decoration: none;
-      margin-right: 1.5rem;
-      transition: color 0.3s;
-
-      &:hover {
-        color: $text-light;
-      }
-    }
-  }
-
-  .image-wrapper {
-    margin: 2rem 0;
-
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-  }
-
-  .next-project {
-    margin-top: 2rem;
-    color: $highlight;
     cursor: pointer;
     font-weight: bold;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
 
     &:hover {
-      color: $text-light;
+      opacity: 1;
+    }
+  }
+
+  .modal-body {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+
+    .modal-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+
+      .project-number-title {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+
+        .project-number {
+          font-size: 3rem;
+          color: $highlight;
+          font-weight: 700;
+          line-height: 1;
+        }
+
+        .project-title {
+          font-size: 3rem;
+          font-weight: 700;
+          margin: 0;
+          line-height: 1.1;
+        }
+      }
+
+      .subtitle {
+        font-size: 1.5rem;
+        color: $highlight;
+        margin: 0;
+      }
+
+      .description {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin: 0;
+        max-width: 480px;
+      }
+
+      .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        span {
+          background: #1c1c1c;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 0.9rem;
+        }
+      }
+
+      .links {
+        display: flex;
+        gap: 24px;
+
+        a {
+          color: $highlight;
+          text-decoration: none;
+          font-size: 1.1rem;
+          font-weight: 600;
+          position: relative;
+          padding-bottom: 2px;
+          transition: color 0.3s ease;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 1px;
+            width: 100%;
+            background: $highlight;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover {
+            color: $text-color;
+
+            &::after {
+              transform: scaleX(1);
+            }
+          }
+        }
+      }
+    }
+
+    .modal-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 24px;
+
+      .image-wrapper {
+        width: 520px;
+        max-width: 100%;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 30px;
+          object-fit: cover;
+        }
+      }
+
+      .next-project {
+        font-size: 1.2rem;
+        color: $highlight;
+        cursor: pointer;
+        font-weight: 700;
+        align-self: flex-end;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $text-color;
+        }
+      }
     }
   }
 }

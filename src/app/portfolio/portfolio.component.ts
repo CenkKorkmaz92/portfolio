@@ -20,7 +20,8 @@ export class PortfolioComponent {
       technologies: ['CSS', 'HTML', 'Firebase', 'Angular', 'TypeScript'],
       githubLink: 'https://github.com/CenkKorkmaz92/Join---2.0',
       liveLink: 'https://cenk-korkmaz.developerakademie.net/Join---2.0/summary.html',
-      imageUrl: 'assets/img/pop-ups/join_pop_up.svg'
+      imageUrl: 'assets/img/pop-ups/join_pop_up.svg',
+      modalImageUrl: 'assets/img/pop-ups/modal_join.svg'
     },
     {
       id: 2,
@@ -30,7 +31,8 @@ export class PortfolioComponent {
       technologies: ['JS', 'HTML', 'SCSS'],
       githubLink: 'https://github.com/CenkKorkmaz92/El_pollo_loco',
       liveLink: 'https://cenk-korkmaz.developerakademie.net/El_pollo_loco/',
-      imageUrl: 'assets/img/pop-ups/el_pollo_loco_pop_up.svg'
+      imageUrl: 'assets/img/pop-ups/el_pollo_loco_pop_up.svg',
+      modalImageUrl: 'assets/img/pop-ups/modal_loco.svg'
     },
     {
       id: 3,
@@ -40,7 +42,8 @@ export class PortfolioComponent {
       technologies: ['Angular', 'Firebase', 'TypeScript'],
       githubLink: '#',
       liveLink: '#',
-      imageUrl: 'assets/img/pop-ups/da_bubble_pop_up.svg'
+      imageUrl: 'assets/img/pop-ups/da_bubble_pop_up.svg',
+      modalImageUrl: 'assets/img/pop-ups/modal_bubble.svg'
     }
   ];
 
@@ -48,9 +51,14 @@ export class PortfolioComponent {
 
   openModal(project: Project) {
     this.selectedProject = project;
+    document.body.classList.add('no-scroll');
   }
 
   closeModal() {
     this.selectedProject = null;
+    document.body.classList.remove('no-scroll');
   }
+
 }
+
+
