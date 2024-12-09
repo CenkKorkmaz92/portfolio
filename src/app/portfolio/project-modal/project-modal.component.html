@@ -18,17 +18,29 @@
                 </ng-container>
             </div>
 
-            <div class="links">
-                <a [href]="project.githubLink" target="_blank">GitHub ↗</a>
-                <a [href]="project.liveLink" target="_blank">Live Test ↗</a>
+            <div class="links buttons">
+                <a [href]="project.githubLink" target="_blank" class="btn-secondary">
+                    <span>GitHub</span><span class="arrow">↗</span>
+                </a>
+                <a [href]="project.liveLink" target="_blank" class="btn-secondary">
+                    <span>Live Test</span><span class="arrow">↗</span>
+                </a>
             </div>
+
+
+
+
         </div>
 
         <div class="modal-right">
             <div class="image-wrapper">
                 <img [src]="project.modalImageUrl || project.imageUrl" alt="{{ project.title }}">
             </div>
-            <div class="next-project" (click)="onClose()">Next project →</div>
+            <div class="next-project">
+                <span>Next project</span>
+                <span class="arrow">→</span>
+            </div>
+
         </div>
     </div>
 </div>
