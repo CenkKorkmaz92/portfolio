@@ -1,0 +1,107 @@
+// src/app/portfolio/project-modal/project-modal.component.scss
+$modal-bg: rgba(0, 0, 0, 0.7);
+$main-bg: #0f3d3e; 
+$highlight: #00ffcc; 
+$text-light: #fff;
+
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: $modal-bg;
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: $main-bg;
+  border-radius: 12px;
+  padding: 2rem;
+  color: $text-light;
+  width: 80%;
+  max-width: 800px;
+  z-index: 1001;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: $text-light;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem; right: 1rem;
+    cursor: pointer;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+
+    .project-number {
+      font-size: 2rem;
+      color: $highlight;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 0;
+    }
+  }
+
+  .subtitle {
+    color: $highlight;
+    margin-top: 1rem;
+  }
+
+  .description {
+    margin: 1rem 0;
+  }
+
+  .technologies {
+    margin: 1rem 0;
+    span {
+      background: #1c1c1c;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .links {
+    margin: 1rem 0;
+    a {
+      color: $highlight;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $text-light;
+      }
+    }
+  }
+
+  .image-wrapper {
+    margin: 2rem 0;
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  .next-project {
+    margin-top: 2rem;
+    color: $highlight;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      color: $text-light;
+    }
+  }
+}

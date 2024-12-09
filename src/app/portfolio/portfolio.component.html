@@ -7,54 +7,24 @@
             skills in action.
         </span>
         <div>
-            <div class="Projects-and-pop-up-container">
-                <div class="projects-container">
-                    <div class="project-headline">Join<img src="../../assets/img/icons/arrow_outward.svg" alt=""></div>
-                    <div class="skills-used-text">
-                        <span>Angular</span>
-                        <div class="vector-1"></div>
-                        <span>TypeScript</span>
-                        <div class="vector-1"></div>
-                        <span>HTML</span>
-                        <div class="vector-1"></div>
-                        <span>CSS</span>
-                        <div class="vector-1"></div>
-                        <span>Firebase</span>
-                    </div>
-                </div>
-                <img src="../../assets/img/pop-ups/join_pop_up.svg" alt="">
-            </div>
+            <div class="Projects-and-pop-up-container" *ngFor="let project of projects" (click)="openModal(project)">
 
-            <div class="Projects-and-pop-up-container">
                 <div class="projects-container">
-                    <div class="project-headline">El Pollo Loco<img src="../../assets/img/icons/arrow_outward.svg"
-                            alt="">
+                    <div class="project-headline">
+                        {{ project.title }}<img src="../../assets/img/icons/arrow_outward.svg" alt="">
                     </div>
                     <div class="skills-used-text">
-                        <span>HTML</span>
-                        <div class="vector-1"></div>
-                        <span>CSS</span>
-                        <div class="vector-1"></div>
-                        <span>JavaScript</span>
+                        <ng-container *ngFor="let tech of project.technologies; let last=last">
+                            <span>{{ tech }}</span>
+                            <div class="vector-1" *ngIf="!last"></div>
+                        </ng-container>
                     </div>
                 </div>
-                <img src="../../assets/img/pop-ups/el_pollo_loco-pop_up.svg" alt="">
-            </div>
 
-            <div class="Projects-and-pop-up-container">
-                <div class="projects-container">
-                    <div class="project-headline">DA Bubble<img src="../../assets/img/icons/arrow_outward.svg" alt="">
-                    </div>
-                    <div class="skills-used-text">
-                        <span>Angular</span>
-                        <div class="vector-1"></div>
-                        <span>Firebase</span>
-                        <div class="vector-1"></div>
-                        <span>Typescript</span>
-                    </div>
-                </div>
-                <img src="../../assets/img/pop-ups/da_bubble_pop_up.svg" alt="">
+                <img [src]="project.imageUrl" alt="{{ project.title }}">
             </div>
         </div>
     </div>
+
+    <app-project-modal *ngIf="selectedProject" [project]="selectedProject" (close)="closeModal()"></app-project-modal>
 </section>

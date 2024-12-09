@@ -9,7 +9,7 @@ export const routes: Routes = [
   { path: '', component: HeroComponent },       // Default route
   { path: 'about', component: AboutComponent }, // Route for AboutComponent
   { path: 'skills', component: SkillsComponent }, // Route for SkillsComponent
-  { path: 'skills', component: PortfolioComponent}, // Route for PortfolioComponent
+  { path: 'portfolio', component: PortfolioComponent}, // Route for PortfolioComponent
   { path: '**', redirectTo: '' }                // Wildcard route for undefined paths
 ];
 

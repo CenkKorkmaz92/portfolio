@@ -1,0 +1,21 @@
+<div class="modal-backdrop" (click)="onClose()"></div>
+<div class="modal-content">
+    <button class="close-btn" (click)="onClose()">X</button>
+    <div class="modal-header">
+        <span class="project-number">0{{ project.id }}</span>
+        <h2>{{ project.title }}</h2>
+    </div>
+    <h3 class="subtitle">{{ project.subtitle }}</h3>
+    <p class="description">{{ project.description }}</p>
+    <div class="technologies">
+        <span *ngFor="let tech of project.technologies">{{ tech }}</span>
+    </div>
+    <div class="links">
+        <a [href]="project.githubLink" target="_blank">GitHub ↗</a>
+        <a [href]="project.liveLink" target="_blank">Live Test ↗</a>
+    </div>
+    <div class="image-wrapper">
+        <img [src]="project.imageUrl" alt="{{ project.title }}">
+    </div>
+    <div class="next-project" (click)="onClose()">Next project →</div>
+</div>
