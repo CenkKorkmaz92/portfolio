@@ -5,11 +5,12 @@ import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { CommentsComponent } from "./comments/comments.component";
+import { ContactComponent } from './contact/contact.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeroComponent, AboutComponent, SkillsComponent, PortfolioComponent, CommentsComponent],
+  imports: [CommonModule, HeroComponent, AboutComponent, SkillsComponent, PortfolioComponent, CommentsComponent, ContactComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
