@@ -1,3 +1,125 @@
-p {
+.contact {
+    background-color: rgb(28, 28, 28);
+    display: flex;
+    justify-content: center;
     color: white;
+    padding-top: 144px;
+    width: 1440px;
+    height: 541px;
+    gap: 60px;
+}
+
+.left-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 568px;
+    height: 337px;
+
+    span {
+        font-family: 'Karla', sans-serif;
+    }
+}
+
+.form-container {
+    width: 616px;
+    height: 550px;
+}
+
+.form-container h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #00ffcc;
+    font-size: 18px;
+
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+    outline: none;
+    border-bottom: 2px solid #00ffcc;
+}
+
+.form-container .checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-container .checkbox-container input {
+    width: auto;
+}
+
+.form-container .submit-btn {
+    background: none;
+    border: 1px solid #00ffcc;
+    color: #00ffcc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+.form-container .submit-btn:hover {
+    background: #00ffcc;
+    color: #121212;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28.06px;
+    margin: 0;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 64px;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28.8px;
+    margin: 0;
+}
+
+.font-fira {
+    font-family: 'Fira Code', sans-serif;
+}
+
+.font-karla {
+    font-family: 'Karla', sans-serif;
+}
+
+.color {
+    color: rgba(61, 207, 182, 1);
+}
+
+.single-input-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 616px;
+    height: 131px;
+    border-top: 1px solid rgba(61, 207, 182, 0.5);
+    border-bottom: 1px solid rgba(61, 207, 182, 0.5);
+    padding: 16px, 32px, 16px, 32px;
+    gap: 10px;
+
+    span {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28.8px;
+        margin: 0;
+    }
 }
