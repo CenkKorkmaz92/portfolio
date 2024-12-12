@@ -20,25 +20,26 @@
         <div class="input-area">
             <div class="single-input-frame">
                 <span class="font-fira">What's your name?</span>
-                <input class="font-karla" type="text" placeholder="Your name goes here" />
+                <input class="font-karla" type="text" placeholder="Your name goes here" required />
             </div>
             <div class="single-input-frame">
                 <span class="font-fira">What's your email?</span>
-                <input class="font-karla" type="email" placeholder="youremail@email.com" />
+                <input class="font-karla" type="email" placeholder="youremail@email.com" required />
 
             </div>
             <div class="single-input-frame">
                 <span class="font-fira">How can I help you?</span>
                 <textarea style="resize: none" [rows]="1" class="font-karla" rows="2"
-                    placeholder="Hello, I am interested in..."></textarea>
+                    placeholder="Hello, I am interested in..." required></textarea>
             </div>
         </div>
 
         <div class="checkbox-area">
             <div class="checkbox-container">
-                <input type="checkbox" id="privacy" />
+                <input type="checkbox" id="privacy" required />
                 <label class="font-karla" for="privacy">I've read the <a class="font-fira" href="#"
-                        style="color: #00ffcc;">privacy policy</a></label>
+                        style="color: #00ffcc;">privacy policy</a>and agree to the processing of my data as
+                    outlined.</label>
             </div>
             <div class="btn-area">
                 <button class="submit-btn">Say Hello ;)</button>
