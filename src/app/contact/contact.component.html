@@ -1,13 +1,8 @@
-<section class="contact">
+<section class="contact" [formGroup]="contactForm">
     <div class="left-contact-form">
-        <h3 class="color font-karla">
-            Contact me</h3>
-        <h1 class="color font-fira">
-            Let's work <br> together
-        </h1>
-        <h2 class="color font-fira">
-            Got a problem to solve?
-        </h2>
+        <h3 class="color font-karla">Contact me</h3>
+        <h1 class="color font-fira">Let's work <br> together</h1>
+        <h2 class="color font-fira">Got a problem to solve?</h2>
         <span>
             Contact me through this form, I am interested in hearing from you, knowing your ideas and contributing to
             your projects with my work.
@@ -16,38 +11,53 @@
             Need a Frontend developer? <span class="color">Let’s talk!</span>
         </span>
     </div>
+
     <div class="form-container">
         <div class="input-area">
             <div class="single-input-frame">
                 <span class="font-fira">What's your name?</span>
-                <input class="font-karla" type="text" placeholder="Your name goes here" required />
+                <input class="font-karla" type="text" [class.error-placeholder]="name?.touched && name?.invalid"
+                    [placeholder]="name?.touched && name?.invalid ? 'Oops! It seems your name is missing' : 'Your name goes here'"
+                    formControlName="name" />
             </div>
+
             <div class="single-input-frame">
                 <span class="font-fira">What's your email?</span>
-                <input class="font-karla" type="email" placeholder="your.email@email.com" required />
-
+                <input class="font-karla" type="email" [class.error-placeholder]="email?.touched && email?.invalid"
+                    [placeholder]="email?.touched && email?.hasError('required') 
+                   ? 'Oops! Your email is required' 
+                   : (email?.touched && email?.hasError('email') 
+                      ? 'Please provide a valid email address' 
+                      : 'your.email@email.com')" formControlName="email" />
             </div>
+
             <div class="single-input-frame">
                 <span class="font-fira">How can I help you?</span>
-                <textarea style="resize: none" [rows]="1" class="font-karla" rows="2"
-                    placeholder="Hello, I am interested in..." required></textarea>
+                <textarea style="resize: none" class="font-karla"
+                    [class.error-placeholder]="message?.touched && message?.invalid" [placeholder]="message?.touched && message?.invalid 
+                      ? 'Oops! Please provide a message' 
+                      : 'Hello, I am interested in...'" formControlName="message"></textarea>
             </div>
         </div>
 
-        <div class="checkbox-area">
-            <div class="checkbox-container">
-                <input type="checkbox" id="privacy" required />
-                <label class="font-karla" for="privacy">I've read the <a class="font-fira" href="#"
-                        style="color: #00ffcc;">privacy policy</a>and agree to the processing of my data as
-                    outlined.</label>
+        <div class="checkbox-area" [class.checkbox-checked]="privacy?.value">
+            <div class="privacy-content">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="privacy" formControlName="privacy" />
+                    <label class="font-karla" for="privacy">
+                        I've read the <a class="privacy-link font-fira" href="#">privacy policy</a> and agree to
+                        the processing of my data as outlined.
+                    </label>
+                </div>
+                <div class="error-message" *ngIf="privacy?.touched && privacy?.invalid">
+                    <small class="error-text">Please accept the privacy policy.</small>
+                </div>
             </div>
             <div class="btn-area">
-                <button class="submit-btn">Say Hello ;)</button>
+                <button class="btn-primary" (click)="onSubmit()">
+                    <span>Say Hello ;)</span>
+                </button>
             </div>
-
         </div>
-
-
-
     </div>
 </section>
