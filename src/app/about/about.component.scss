@@ -94,5 +94,10 @@
         width: 504px;
         gap: 24px;
         font-family: 'Karla', sans-serif;
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1.0;
+        }
     }
 }
