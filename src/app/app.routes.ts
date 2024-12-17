@@ -14,6 +14,7 @@ export const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent }, // Route for PortfolioComponent
   { path: 'comments', component: CommentsComponent }, // Route for CommentsComponent
   { path: 'contact', component: ContactComponent }, // Route for ContactComponent
+  { path: 'footer', component: ContactComponent }, // Route for FooterComponent
   { path: '**', redirectTo: '' }                // Wildcard route for undefined paths
 ];
 
