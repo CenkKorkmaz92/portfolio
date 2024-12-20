@@ -28,7 +28,7 @@ export class PortfolioComponent {
       title: 'El Pollo Loco',
       subtitle: 'What is this project about?',
       description: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.',
-      technologies: ['JS', 'HTML', 'SCSS'],
+      technologies: ['JavaScript', 'HTML', 'CSS'],
       githubLink: 'https://github.com/CenkKorkmaz92/El_pollo_loco',
       liveLink: 'https://cenk-korkmaz.developerakademie.net/El_pollo_loco/',
       imageUrl: 'assets/img/pop-ups/el_pollo_loco_pop_up.svg',
@@ -58,7 +58,6 @@ export class PortfolioComponent {
     this.selectedProject = null;
     document.body.classList.remove('no-scroll');
   }
-
 }
 
 

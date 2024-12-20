@@ -16,4 +16,23 @@ export class ProjectModalComponent {
   onClose() {
     this.close.emit();
   }
+
+  getIconPath(tech: string): string {
+    switch (tech.toLowerCase()) {
+      case 'css':
+        return 'assets/img/icons/modal_css_icon.svg';
+      case 'html':
+        return 'assets/img/icons/modal_html_icon.svg';
+      case 'firebase':
+        return 'assets/img/icons/modal_firebase_icon.svg';
+      case 'angular':
+        return 'assets/img/icons/modal_angular_icon.svg';
+      case 'typescript':
+        return 'assets/img/icons/modal_ts_icon.svg';
+        case 'javascript':
+        return 'assets/img/icons/modal_js_icon.svg';
+      default:
+        return 'assets/img/icons/default.svg';
+    }
+  }
 }
