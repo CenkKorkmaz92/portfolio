@@ -23,7 +23,10 @@
         </div>
     </div>
 
-    <app-project-modal *ngIf="selectedProject" [project]="selectedProject" (close)="closeModal()"
+    <app-project-modal 
+        *ngIf="selectedProject" 
+        [project]="selectedProject" 
+        (close)="closeModal()" 
         (next)="nextProject()">
     </app-project-modal>
 </section>
