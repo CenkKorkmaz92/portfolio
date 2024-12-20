@@ -47,6 +47,8 @@ $modal-bg-image: "../../../assets/img/backgrounds/background_first_section.svg";
 
     &:hover {
       opacity: 1;
+      transform: scale(1.1);
+      color: #00ffcc;
     }
   }
 

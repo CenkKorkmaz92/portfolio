@@ -8,7 +8,7 @@ import { ProjectModalComponent } from './project-modal/project-modal.component';
   standalone: true,
   imports: [CommonModule, ProjectModalComponent],
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.scss'
+  styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent {
   projects: Project[] = [
@@ -16,7 +16,7 @@ export class PortfolioComponent {
       id: 1,
       title: 'Join',
       subtitle: 'What is this project about?',
-      description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
+      description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories. ',
       technologies: ['CSS', 'HTML', 'Firebase', 'Angular', 'TypeScript'],
       githubLink: 'https://github.com/CenkKorkmaz92/Join---2.0',
       liveLink: 'https://cenk-korkmaz.developerakademie.net/Join---2.0/summary.html',
@@ -58,6 +58,13 @@ export class PortfolioComponent {
     this.selectedProject = null;
     document.body.classList.remove('no-scroll');
   }
+
+  nextProject() {
+    if (this.selectedProject) {
+      let currentIndex = this.projects.findIndex(p => p.id === this.selectedProject!.id);
+      // Move to the next index, or wrap around to 0 if at the end
+      currentIndex = (currentIndex + 1) % this.projects.length;
+      this.selectedProject = this.projects[currentIndex];
+    }
+  }
 }
-
-

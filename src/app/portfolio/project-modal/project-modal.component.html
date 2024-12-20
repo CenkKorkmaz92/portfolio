@@ -27,21 +27,16 @@
                     <span>Live Test</span><span class="arrow">↗</span>
                 </a>
             </div>
-
-
-
-
         </div>
 
         <div class="modal-right">
             <div class="image-wrapper">
                 <img [src]="project.modalImageUrl || project.imageUrl" alt="{{ project.title }}">
             </div>
-            <div class="next-project">
+            <div class="next-project" (click)="onNextProject()">
                 <span>Next project</span>
                 <span class="arrow">→</span>
             </div>
-
         </div>
     </div>
 </div>

@@ -3,8 +3,7 @@
         <span class="portfolio-headline">Portfolio</span>
         <h1>Featured Projects</h1>
         <span class="portfolio-description">
-            Explore a selection of my work here - Interact with projects to see my
-            skills in action.
+            Explore a selection of my work here...
         </span>
         <div>
             <div class="Projects-and-pop-up-container" *ngFor="let project of projects" (click)="openModal(project)">
@@ -21,9 +20,10 @@
                 </div>
                 <img [src]="project.imageUrl" alt="{{ project.title }}">
             </div>
-
         </div>
     </div>
 
-    <app-project-modal *ngIf="selectedProject" [project]="selectedProject" (close)="closeModal()"></app-project-modal>
+    <app-project-modal *ngIf="selectedProject" [project]="selectedProject" (close)="closeModal()"
+        (next)="nextProject()">
+    </app-project-modal>
 </section>

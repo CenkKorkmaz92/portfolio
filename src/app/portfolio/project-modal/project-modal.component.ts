@@ -12,9 +12,14 @@ import { Project } from '../project.model';
 export class ProjectModalComponent {
   @Input() project!: Project;
   @Output() close = new EventEmitter<void>();
+  @Output() next = new EventEmitter<void>(); // New event emitter
 
   onClose() {
     this.close.emit();
+  }
+
+  onNextProject() {
+    this.next.emit();
   }
 
   getIconPath(tech: string): string {
@@ -29,7 +34,7 @@ export class ProjectModalComponent {
         return 'assets/img/icons/modal_angular_icon.svg';
       case 'typescript':
         return 'assets/img/icons/modal_ts_icon.svg';
-        case 'javascript':
+      case 'javascript':
         return 'assets/img/icons/modal_js_icon.svg';
       default:
         return 'assets/img/icons/default.svg';
