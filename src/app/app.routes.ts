@@ -5,7 +5,6 @@ import { SkillsComponent } from './skills/skills.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { CommentsComponent } from './comments/comments.component';
 import { ContactComponent } from './contact/contact.component';
-import { FooterComponent } from './footer/footer.component';
 
 
 export const routes: Routes = [
@@ -15,7 +14,7 @@ export const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent }, // Route for PortfolioComponent
   { path: 'comments', component: CommentsComponent }, // Route for CommentsComponent
   { path: 'contact', component: ContactComponent }, // Route for ContactComponent
-  { path: 'footer', component: FooterComponent }, // Route for FooterComponent
+  { path: 'footer', component: ContactComponent }, // Route for FooterComponent
   { path: '**', redirectTo: '' }                // Wildcard route for undefined paths
 ];
 
