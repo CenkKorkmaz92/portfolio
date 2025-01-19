@@ -1,0 +1,69 @@
+<section id="contact" class="contact" [formGroup]="contactForm">
+    <div class="left-contact-form">
+        <h3 class="color font-karla">{{ translations[selectedLanguage].TITLE }}</h3>
+        <h1 class="color font-fira">{{ translations[selectedLanguage].HEADLINE }}</h1>
+        <h2 class="color font-fira">{{ translations[selectedLanguage].SUBLINE }}</h2>
+        <span>
+            {{ translations[selectedLanguage].SUBTEXT1 }}
+        </span>
+        <span>
+            {{ translations[selectedLanguage].SUBTEXT2 }} <span class="color">{{ translations[selectedLanguage].HEADLINE
+                }}</span>
+        </span>
+    </div>
+
+    <div class="form-container">
+        <div class="input-area">
+            <div class="single-input-frame">
+                <span class="font-fira">{{ translations[selectedLanguage].FORM_NAME }}</span>
+                <input class="font-karla" type="text" [class.error-placeholder]="name?.touched && name?.invalid"
+                    [placeholder]="
+              name?.touched && name?.invalid
+                ? translations[selectedLanguage].FORM_NAME_PLACEHOLDER
+                : translations[selectedLanguage].FORM_NAME_PLACEHOLDER
+            " formControlName="name" />
+            </div>
+
+            <div class="single-input-frame">
+                <span class="font-fira">{{ translations[selectedLanguage].FORM_MAIL }}</span>
+                <input class="font-karla" type="email" [class.error-placeholder]="email?.touched && email?.invalid"
+                    [placeholder]="
+              email?.touched && email?.hasError('required')
+                ? translations[selectedLanguage].FORM_EMAIL_PLACEHOLDER
+                : email?.touched && email?.hasError('email')
+                ? translations[selectedLanguage].FORM_EMAIL_PLACEHOLDER
+                : translations[selectedLanguage].FORM_EMAIL_PLACEHOLDER
+            " formControlName="email" />
+            </div>
+
+            <div class="single-input-frame">
+                <span class="font-fira">{{ translations[selectedLanguage].FORM_Question }}</span>
+                <textarea style="resize: none" class="font-karla"
+                    [class.error-placeholder]="message?.touched && message?.invalid" [placeholder]="
+              message?.touched && message?.invalid
+                ? translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER
+                : translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER
+            " formControlName="message"></textarea>
+            </div>
+        </div>
+
+        <div class="checkbox-area" [class.checkbox-checked]="privacy?.value">
+            <div class="privacy-content">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="privacy" formControlName="privacy" />
+                    <label class="font-karla" for="privacy">
+                        {{ translations[selectedLanguage].PRIVACY_POLICY }}
+                    </label>
+                </div>
+                <div class="error-message" *ngIf="privacy?.touched && privacy?.invalid">
+                    <small class="error-text">{{ translations[selectedLanguage].PRIVACY_ERROR }}</small>
+                </div>
+            </div>
+            <div class="btn-area">
+                <button class="btn-primary" (click)="onSubmit()">
+                    <span>{{ translations[selectedLanguage].SUBMIT_BUTTON }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
