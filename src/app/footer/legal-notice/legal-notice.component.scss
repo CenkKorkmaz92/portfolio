@@ -52,7 +52,7 @@ body {
   justify-content: space-between;
   align-items: center;
   .single-button:hover {
-    color: rgb(61, 207, 182);
+    color: rgb(61, 207, 182) !important;
     cursor: pointer;
   }
 }

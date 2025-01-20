@@ -1,8 +1,5 @@
 <div>
-    <!-- Trigger für Dropdown-Menü -->
     <button mat-button [matMenuTriggerFor]="legalNoticeMenu" class="social-links">Legal Notice</button>
-    
-    <!-- Haupt-Dropdown-Menü -->
     <mat-menu #legalNoticeMenu="matMenu">
       <button mat-menu-item (click)="openDataProtection()" class="single-button">Data Protection</button>
       <button mat-menu-item (click)="openImprint()" class="single-button">Imprint</button>
