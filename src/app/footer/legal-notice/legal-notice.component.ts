@@ -16,9 +16,7 @@ import { MatDialogConfig } from '@angular/material/dialog';
     MatButtonModule, 
     MatIconModule, 
     MatMenuModule, 
-    MatDialogModule,
-    DataProtectionComponent, 
-    ImprintComponent,
+    MatDialogModule
   ],
   templateUrl: './legal-notice.component.html',
   styleUrls: ['./legal-notice.component.scss']

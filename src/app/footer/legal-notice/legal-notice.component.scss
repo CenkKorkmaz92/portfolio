@@ -13,6 +13,12 @@ body {
     transition: none !important; /* Verhindert jegliche Animationen */
   }
 
+.button-legal-notice:hover{
+    background: none !important; /* Kein Hintergrund */
+    border: none !important; /* Keine Rahmen */
+    box-shadow: none !important; /* Keine Box-Schatten */
+}
+
 .social-links-legel-notice {
     display: flex;
     flex-direction: column;
