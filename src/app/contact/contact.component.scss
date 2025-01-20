@@ -75,7 +75,7 @@
     align-items: flex-start;
     flex-direction: column;
     width: 616px;
-    gap: 16px;
+    gap: 40px;
 
     .btn-area {
         width: 100%;
@@ -87,7 +87,6 @@
 .privacy-content {
     display: flex;
     flex-direction: column;
-    max-width: calc(100% - 140px);
     position: relative;
     padding-bottom: 20px;
 }
@@ -274,39 +273,32 @@ h2 {
         flex-direction: column;
         align-items: center;
     }
-}
-
-@media (max-width: 768px) {
-    .contact {
-        padding-top: 100px !important;
-    }
 
     .left-contact-form {
-        width: 358px !important;
-
-        h1 {
-            font-size: 56px;
-        }
-
-        h2 {
-            font-size: 20px;
-        }
-
-        h3 {
-            font-size: 18px;
-        }
+        width: 90% !important;
     }
 
     .form-container {
-        width: 358px !important;
+        width: 90% !important;
     }
 
-   .checkbox-area {
-    width: 358px !important;
-    gap: 30px !important;
-   }
+    .checkbox-area {
+        width: 100% !important;
+    }
+}
 
-   .privacy-content {
-    max-width: calc(113% - 140px);
-   }
+@media (max-width: 480px) {
+    .left-contact-form {
+        h1 {
+            font-size: 56px !important;
+        }
+    }
+}
+
+@media (max-width: 390px) {
+    .left-contact-form {
+        h1 {
+            font-size: 46px !important;
+        }
+    }
 }
