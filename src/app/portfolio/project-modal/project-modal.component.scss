@@ -137,9 +137,6 @@ $modal-bg-image: "../../../assets/img/backgrounds/background_first_section.svg";
         }
       }
 
-
-
-
       .links {
         display: flex;
         gap: 24px;
@@ -290,5 +287,13 @@ $modal-bg-image: "../../../assets/img/backgrounds/background_first_section.svg";
         transform: translate(4px, -4px) scale(1.2);
       }
     }
+  }
+}
+
+@media (max-width: 1050px) {
+  .modal-body {
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
   }
 }
