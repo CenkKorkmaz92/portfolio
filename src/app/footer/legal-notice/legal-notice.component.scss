@@ -1,60 +1,58 @@
 body {
-  background-color: rgb(28, 28, 28);
+    background-color: rgb(28, 28, 28);
+}
+
+.font-karla {
+    font-family: 'Karla', sans-serif;
+}
+
+.social-links.mat-button:hover {
+    background-color: transparent !important; /* Entfernt die Hintergrundfarbe beim Hover */
+    box-shadow: none !important; /* Entfernt den Hover-Schatten */
+    color: inherit !important; /* Beibehaltung der ursprünglichen Schriftfarbe */
+    transition: none !important; /* Verhindert jegliche Animationen */
   }
   
-  .social-links {
+
+.social-links {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    height: 20px;
+
+    &:hover {
+        cursor: pointer;
+        color: rgba(61, 207, 182, 1);
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        background-color: rgba(61, 207, 182, 1);
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
 
     a {
         text-decoration: none;
     }
-
-    button {
-        display: flex;
-        border: none;
-        background: transparent;
-        color: white;
-        font-size: 16px;
-        position: relative;
-        transition: transform 0.3s ease;
-
-        &:hover {
-            cursor: pointer;
-            color: rgba(61, 207, 182, 1);
-        }
-
-        &:hover::before {
-            opacity: 1;
-        }
-
-        &::before {
-            content: "";
-            position: absolute;
-            left: -12px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background-color: rgba(61, 207, 182, 1);
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-    }
 }
 
-.single-button {
-  width: 204px;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .single-button:hover {
-    color: rgb(61, 207, 182) !important;
-    cursor: pointer;
-  }
+button:hover {
+    color: rgba(61, 207, 182, 1);
+
 }
 
 .font-karla {

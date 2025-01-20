@@ -2,13 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     background-color: rgb(28, 28, 28);
 }
 
 .footer-section {
     color: white;
-    width: 1248.14px;
+    width: 95%;
     height: 126px;
     padding-top: 144px;
     padding-bottom: 44px;
@@ -86,6 +87,10 @@
     }
 }
 
+.hidden-copyright {
+    display: none;
+}
+
 .font-karla {
     font-family: 'Karla', sans-serif;
 }
@@ -97,5 +102,24 @@
 @media (max-width: 1280px) {
     .footer-section {
         padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hidden-copyright {
+        display: block;
+    }
+
+    .visible-copyright {
+        display: none;
+    }
+
+    .logo {
+        visibility: hidden;
+    }
+
+    .logo::before {
+        visibility: visible;
+        content: 'CK';
     }
 }
