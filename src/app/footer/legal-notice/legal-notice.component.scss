@@ -12,19 +12,26 @@ body {
     color: inherit !important; /* Beibehaltung der ursprünglichen Schriftfarbe */
     transition: none !important; /* Verhindert jegliche Animationen */
   }
-  
 
-.social-links {
+.social-links-legel-notice {
     display: flex;
     flex-direction: column;
     gap: 8px;
     font-size: 16px;
     font-weight: 400;
     height: 20px;
+    letter-spacing: normal !important;
+    padding: 0;
+    padding-left: 6px;
+    background: none !important; /* Kein Hintergrund */
+    border: none !important; /* Keine Rahmen */
+    box-shadow: none !important; /* Keine Box-Schatten */
 
     &:hover {
         cursor: pointer;
         color: rgba(61, 207, 182, 1);
+        background: none !important; /* Entferne Hintergrundfarbe beim Hover */
+        box-shadow: none !important; /* Entferne Box-Schatten */
     }
 
     &:hover::before {
@@ -50,9 +57,14 @@ body {
     }
 }
 
+.single-button{
+    min-height: 36px !important;
+}
+
 button:hover {
     color: rgba(61, 207, 182, 1);
-
+    background: none !important; /* Entferne Hintergrundfarbe beim Hover */
+    box-shadow: none !important; /* Entferne Box-Schatten */
 }
 
 .font-karla {
