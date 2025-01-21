@@ -61,8 +61,6 @@
         display: block;
         width: 568px;
         height: 568px;
-        padding-top: 12px;
-        padding-left: 36px;
     }
 
     .about-me-description {
@@ -134,10 +132,7 @@
     }
 
     .profile-picture-bg.visible {
-        width: 580px !important;
-        height: 568px !important;
-        padding-top: 12px !important;
-        padding-left: 0 !important;
+       padding-right: 46px;
     }
 
 
@@ -158,15 +153,15 @@
     }
 
     .profile-picture {
-        width: 358px !important;
-        height: 358px !important;
+        width: 370px !important;
+        height: 370px !important;
     }
 
     .profile-picture-bg.visible {
         width: 370px !important;
-        height: 358px !important;
-        padding-top: 12px !important;
-        padding-left: 0px !important;
+        height: 370px !important;
+        padding-top: 24px !important;
+        padding-right: 24px !important;
     }
 
     .who-i-am-section {
@@ -191,9 +186,7 @@
 
     .profile-picture-bg.visible {
         width: 312px !important;
-        height: 300px !important;
-        padding-top: 12px !important;
-        padding-left: 0px !important;
+        height: 312px !important;
     }
 }
 
@@ -212,5 +205,16 @@
     .icons-with-text-main-container{
         height: auto !important;
     }
+}
 
+@media (max-width: 350px) {
+    .profile-picture-bg.visible {
+        width: 300px !important;
+        height: 300px !important;
+    } 
+    
+    .profile-picture {
+        width: 300px !important;
+        height: 300px !important;
+    }
 }
