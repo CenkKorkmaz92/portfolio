@@ -74,14 +74,14 @@
                       : translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER
                   "
                   formControlName="message"
-                  pattern=".{15,}"
+                  pattern=".{15,1000}"
                 ></textarea>
                 <div *ngIf="message?.touched && message?.invalid && message?.value">
                     <span *ngIf="message?.errors?.['required']">
                       {{ translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER }}
                     </span>
                     <span class="error-message" *ngIf="message?.errors?.['pattern']">
-                      Please write at least 15 characters.
+                      Please write between 15 and 1000 characters.
                     </span>
                   </div>
               </div>
