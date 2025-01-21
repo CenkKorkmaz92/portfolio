@@ -181,6 +181,9 @@
 }
 
 @media (max-width: 480px) {
+    .comments-section {
+        padding-top: 200px !important;
+    }
     .quote {
         width: 390px !important;
     }
