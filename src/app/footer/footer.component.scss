@@ -89,6 +89,7 @@
 
 .hidden-copyright {
     display: none;
+    padding-bottom: 30px !important;
 }
 
 .font-karla {
@@ -101,11 +102,15 @@
 
 @media (max-width: 1280px) {
     .footer-section {
-        padding: 30px;
+        padding: 100px 16px 30px 16px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 650px) {
+    .footer-section {
+        padding: 50px 4px 30px 4px;
+    }
+
     .hidden-copyright {
         display: block;
     }
@@ -116,6 +121,9 @@
 
     .logo {
         visibility: hidden;
+        line-height: 8.2px !important;
+        font-size: 1.5rem !important;
+        font-weight: bold !important;
     }
 
     .logo::before {

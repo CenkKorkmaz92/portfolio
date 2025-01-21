@@ -132,6 +132,22 @@
     justify-content: space-between;
     width: 480px;
     gap: 72px;
+
+    img {
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.popup-hover-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 72px;
+
     img {
         transition: transform 0.3s ease;
 
@@ -192,7 +208,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 220px;
+                width: 100%;
                 gap: 8px;
 
                 img {
@@ -201,7 +217,7 @@
                 }
 
                 span {
-                    font-size: 12px;
+                    font-size: 14px;
                 }
             }
 
@@ -262,17 +278,29 @@
         gap: 80px;
     }
 
-    .self-summary-section{
+    .self-summary-section {
         padding: 0;
     }
 
-    .coding-icons{
+    .coding-icons {
         padding: 0;
     }
 
     .popup {
         top: -4% !important;
         left: 400% !important;
+    }
+}
+
+@media (max-width: 950px) {
+    .popup {
+        width: 100px !important;
+        top: -175% !important;
+        left: 56% !important;
+    }
+
+    .popup-hover-icons {
+        gap: 12px !important;
     }
 }
 
@@ -299,7 +327,6 @@
         justify-content: center !important;
         gap: 60px !important;
     }
-
 }
 
 @media (max-width: 600px) {
@@ -310,31 +337,31 @@
     }
 
     .icon {
-        img{
+        img {
             width: 50px !important;
             height: 50px !important;
         }
-        font-size: 10px;
+
+        font-size: 14px;
     }
 
-    .skill-set-description{
+    .skill-set-description {
         width: 300px !important;
         height: auto;
 
     }
 
-    .headline-skill-set{
+    .headline-skill-set {
         font-size: 42px;
     }
 }
 
 @media (max-width: 400px) {
-    .self-summary-section{
+    .self-summary-section {
         width: 305px !important;
     }
 
     .skill-set-description {
         width: 240px !important;
     }
-} 
-    
+}
