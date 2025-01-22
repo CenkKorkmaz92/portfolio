@@ -2,6 +2,22 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../language.service';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ContactService {
+  private apiUrl = 'https://philipp-schoenborn.de/sendMail.php'; // URL zu Ihrem PHP-Skript
+
+  constructor(private http: HttpClient) {}
+
+  sendContactForm(data: any): Observable<any> {
+    return this.http.post(this.apiUrl, data);
+  }
+}
 
 @Component({
   selector: 'app-contact',
@@ -59,7 +75,7 @@ export class ContactComponent {
     }
   };
 
-  constructor(private languageService: LanguageService) { }
+  constructor(private languageService: LanguageService, private contactService: ContactService) { }
 
   ngOnInit(): void {
     // Subscribe to the service so we know the current language
@@ -75,7 +91,17 @@ export class ContactComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      // Submit logic
+      const formData = this.contactForm.value;
+  
+      this.contactService.sendContactForm(formData).subscribe({
+        next: (response) => {
+          alert('Message sent successfully!');
+          this.contactForm.reset();
+        },
+        error: (error) => {
+          alert('Failed to send the message. Please try again later.');
+        },
+      });
     } else {
       this.contactForm.markAllAsTouched();
     }
