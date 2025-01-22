@@ -15,7 +15,7 @@ export class ImprintComponent implements OnInit {
   translations = {
     EN: {
       heading1: 'Imprint',
-      heading2: 'Information According to § 5 TMG',
+      heading2: 'Information acc. to § 5 TMG',
       block2: `
         <p>
           Philipp Schönborn<br>
