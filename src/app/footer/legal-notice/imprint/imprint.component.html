@@ -1,20 +1,17 @@
 <div class="imprint">
-    <h1>Impressum</h1>
 
-    <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
-    <p>Philipp Schönborn<br />
-    Baumschulenring 26<br />
-    72202 Nagold</p>
-
-    <h2>Kontakt</h2>
-    <p>Telefon: +49 (0) 176 306 785 30<br />
-    E-Mail:  <a href="mailto:philipp@schoenborn-home.de">philipp&#64;schoenborn-home.de</a></p>
-
-    <h2>Redaktionell verantwortlich</h2>
-    <p>Philipp Schönborn<br />
-    Baumschulenring 26<br />
-    72202 Nagold</p>
-
-    <p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
-</div>
-
+    <h1 [innerHTML]="translations[selectedLanguage].heading1"></h1>
+    
+    <h2 [innerHTML]="translations[selectedLanguage].heading2"></h2>
+    <div [innerHTML]="translations[selectedLanguage].block2"></div>
+  
+    <h2 [innerHTML]="translations[selectedLanguage].heading3"></h2>
+    <div [innerHTML]="translations[selectedLanguage].block3"></div>
+  
+    <h2 [innerHTML]="translations[selectedLanguage].heading4"></h2>
+    <div [innerHTML]="translations[selectedLanguage].block4"></div>
+  
+    <div [innerHTML]="translations[selectedLanguage].block5"></div>
+  
+  </div>
+  
