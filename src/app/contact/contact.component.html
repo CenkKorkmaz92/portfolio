@@ -107,3 +107,38 @@
         </div>
     </div>
 </section>
+
+<!-- new from section send message -->
+
+<!-- <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+  <label for="name">Name</label>
+  <input #name="ngModel" [(ngModel)]="contactData.name" type="text" id="name" name="name" placeholder="Your name" required>
+  @if (!name.valid && name.touched) {
+      <span>Please enter a name</span><br>
+  }
+
+
+  <label for="email">e-mail</label>
+  <input #email="ngModel"  [(ngModel)]="contactData.email" type="email" id="email" name="email" placeholder="Your email" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
+  @if (!email.valid && email.touched) {
+      <span>Please enter an e-mail address</span><br>
+  }
+
+
+  <label for="message">Subject</label>
+  <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message" name="message" placeholder="Your message" required></textarea>
+  @if (!message.valid && message.touched) {
+      <span>Please enter a message</span><br>
+  }
+
+  <div class="checkbox-container">
+      <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+      <label for="acceptTerms">I've read the <p>private policy</p> and agree to the processing of my data as outlined. </label>
+  </div>
+
+  <div *ngIf="!contactForm.valid">
+      <span>Please accept the terms and conditions</span><br>
+  </div>
+
+  <input type="submit" value="Send message" class="submit-button">
+</form> -->

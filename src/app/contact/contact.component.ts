@@ -1,28 +1,13 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../language.service';
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
-@Injectable({
-  providedIn: 'root',
-})
-export class ContactService {
-  private apiUrl = 'https://philipp-schoenborn.de/sendMail.php'; // URL zu Ihrem PHP-Skript
-
-  constructor(private http: HttpClient) {}
-
-  sendContactForm(data: any): Observable<any> {
-    return this.http.post(this.apiUrl, data);
-  }
-}
+// import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
@@ -75,7 +60,7 @@ export class ContactComponent {
     }
   };
 
-  constructor(private languageService: LanguageService, private contactService: ContactService) { }
+  constructor(private languageService: LanguageService,) { }
 
   ngOnInit(): void {
     // Subscribe to the service so we know the current language
@@ -91,17 +76,7 @@ export class ContactComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      const formData = this.contactForm.value;
-  
-      this.contactService.sendContactForm(formData).subscribe({
-        next: (response) => {
-          alert('Message sent successfully!');
-          this.contactForm.reset();
-        },
-        error: (error) => {
-          alert('Failed to send the message. Please try again later.');
-        },
-      });
+      // Submit logic
     } else {
       this.contactForm.markAllAsTouched();
     }
@@ -120,3 +95,47 @@ export class ContactComponent {
     return this.contactForm.get('privacy');
   }
 }
+
+
+
+// new contact submitt funktion 
+
+// http = inject(HttpClient)
+
+//   contactData ={
+//     name: "",
+//     email: "",
+//     message: "",
+//   }
+
+//   mailTest = true;
+
+//   post = {
+//     endPoint: 'https://deineDomain.de/sendMail.php',
+//     body: (payload: any) => JSON.stringify(payload),
+//     options: {
+//       headers: {
+//         'Content-Type': 'text/plain',
+//         responseType: 'text',
+//       },
+//     },
+//   };
+
+//   onSubmit(ngForm: NgForm) {
+//     if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
+//       this.http.post(this.post.endPoint, this.post.body(this.contactData))
+//         .subscribe({
+//           next: (response) => {
+
+//             ngForm.resetForm();
+//           },
+//           error: (error) => {
+//             console.error(error);
+//           },
+//           complete: () => console.info('send post complete'),
+//         });
+//     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
+
+//       ngForm.resetForm();
+//     }
+//   }
