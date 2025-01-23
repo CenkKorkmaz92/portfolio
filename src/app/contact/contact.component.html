@@ -1,144 +1,132 @@
-<section id="contact" class="contact" [formGroup]="contactForm">
-    <div class="left-contact-form">
-        <h3 class="color font-karla">{{ translations[selectedLanguage].TITLE }}</h3>
-        <h1 class="color font-fira">{{ translations[selectedLanguage].HEADLINE }}</h1>
-        <h2 class="color font-fira">{{ translations[selectedLanguage].SUBLINE }}</h2>
-        <span>
-            {{ translations[selectedLanguage].SUBTEXT1 }}
+<section id="contact" class="contact">
+  <div class="left-contact-form">
+    <h3 class="color font-karla">{{ translations[selectedLanguage].TITLE }}</h3>
+    <h1 class="color font-fira">{{ translations[selectedLanguage].HEADLINE }}</h1>
+    <h2 class="color font-fira">{{ translations[selectedLanguage].SUBLINE }}</h2>
+    <span>{{ translations[selectedLanguage].SUBTEXT1 }}</span>
+    <span>
+      {{ translations[selectedLanguage].SUBTEXT2 }}
+      <span class="color">{{ translations[selectedLanguage].HEADLINE }}</span>
+    </span>
+  </div>
+
+  <!-- 
+    NEW template-driven form
+    (Uses contactForm="ngForm" and ngModel)
+  -->
+  <form 
+    class="form-container"
+    (ngSubmit)="onSubmit(contactForm)" 
+    #contactForm="ngForm"
+  >
+
+    <!-- NAME FIELD -->
+    <div class="single-input-frame">
+      <label for="name" class="font-fira">
+        {{ translations[selectedLanguage].FORM_NAME }}
+      </label>
+      <input
+        #name="ngModel"
+        class="font-karla"
+        type="text"
+        id="name"
+        name="name"
+        placeholder="{{ translations[selectedLanguage].FORM_NAME_PLACEHOLDER }}"
+        [(ngModel)]="contactData.name"
+        required
+      />
+      <div class="error-message" *ngIf="name.invalid && name.touched">
+        <span class="error-text">
+          {{ translations[selectedLanguage].FORM_NAME_PLACEHOLDER }}
         </span>
-        <span>
-            {{ translations[selectedLanguage].SUBTEXT2 }} <span class="color">{{ translations[selectedLanguage].HEADLINE
-                }}</span>
-        </span>
+      </div>
     </div>
 
-    <div class="form-container">
-        <div class="input-area">
-            <div class="single-input-frame">
-                <span class="font-fira">{{ translations[selectedLanguage].FORM_NAME }}</span>
-                <input
-                  class="font-karla"
-                  type="text"
-                  [class.error-placeholder]="name?.touched && name?.invalid"
-                  [placeholder]="
-                    name?.touched && name?.invalid
-                      ? translations[selectedLanguage].FORM_NAME_PLACEHOLDER
-                      : translations[selectedLanguage].FORM_NAME_PLACEHOLDER
-                  "
-                  formControlName="name"
-                  pattern="[a-zA-ZäöüÄÖÜß_\- ]{2,}"
-                />
-                <div *ngIf="name?.touched && name?.invalid && name?.value">
-                    <span *ngIf="name?.errors?.['required']">
-                      {{ translations[selectedLanguage].FORM_NAME_PLACEHOLDER }}
-                    </span>
-                    <span class="error-message" *ngIf="name?.errors?.['pattern']">
-                      Please enter at least 2 letters. Only letters, spaces, dashes, and underscores are allowed.
-                    </span>
-                  </div>
-              </div>
-
-            <div class="single-input-frame">
-                <span class="font-fira">{{ translations[selectedLanguage].FORM_MAIL }}</span>
-                <input 
-                  class="font-karla" 
-                  type="email" 
-                  [class.error-placeholder]="email?.touched && email?.invalid"
-                  [placeholder]="
-                    email?.touched && email?.hasError('required')
-                      ? translations[selectedLanguage].FORM_EMAIL_PLACEHOLDER
-                      : translations[selectedLanguage].FORM_EMAIL_PLACEHOLDER
-                  "
-                  formControlName="email"
-                  pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" 
-                />
-                <div *ngIf="email?.touched && email?.invalid && email?.value">
-                    <span *ngIf="email?.errors?.['required']">
-                      {{ translations[selectedLanguage].FORM_EMAIL_PLACEHOLDER }}
-                    </span>
-                    <span class="error-message" *ngIf="email?.errors?.['email'] || email?.errors?.['pattern']">
-                      Invalid email format. Please enter a valid email address.
-                    </span>
-                  </div>
-              </div>
-
-              <div class="single-input-frame">
-                <span class="font-fira">{{ translations[selectedLanguage].FORM_Question }}</span>
-                <textarea
-                  style="resize: none"
-                  class="font-karla"
-                  [class.error-placeholder]="message?.touched && message?.invalid"
-                  [placeholder]="
-                    message?.touched && message?.invalid
-                      ? translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER
-                      : translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER
-                  "
-                  formControlName="message"
-                  pattern=".{15,1000}"
-                ></textarea>
-                <div *ngIf="message?.touched && message?.invalid && message?.value">
-                    <span *ngIf="message?.errors?.['required']">
-                      {{ translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER }}
-                    </span>
-                    <span class="error-message" *ngIf="message?.errors?.['pattern']">
-                      Please write between 15 and 1000 characters.
-                    </span>
-                  </div>
-              </div>
-        </div>
-
-        <div class="checkbox-area" [class.checkbox-checked]="privacy?.value">
-            <div class="privacy-content">
-                <div class="checkbox-container">
-                    <input type="checkbox" id="privacy" formControlName="privacy" />
-                    <label class="font-karla" for="privacy">
-                        {{ translations[selectedLanguage].PRIVACY_POLICY }}
-                    </label>
-                </div>
-                <div class="error-message" *ngIf="privacy?.touched && privacy?.invalid">
-                    <small class="error-text">{{ translations[selectedLanguage].PRIVACY_ERROR }}</small>
-                </div>
-            </div>
-            <div class="btn-area">
-                <button class="btn-primary" (click)="onSubmit()">
-                    <span>{{ translations[selectedLanguage].SUBMIT_BUTTON }}</span>
-                </button>
-            </div>
-        </div>
+    <!-- EMAIL FIELD -->
+    <div class="single-input-frame">
+      <label for="email" class="font-fira">
+        {{ translations[selectedLanguage].FORM_MAIL }}
+      </label>
+      <input
+        #email="ngModel"
+        class="font-karla"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="{{ translations[selectedLanguage].FORM_EMAIL_PLACEHOLDER }}"
+        [(ngModel)]="contactData.email"
+        required
+        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+      />
+      <div class="error-message" *ngIf="email.invalid && email.touched">
+        <span class="error-text">Invalid email format. Please enter a valid email.</span>
+      </div>
     </div>
+
+    <!-- MESSAGE FIELD -->
+    <div class="single-input-frame">
+      <label for="message" class="font-fira">
+        {{ translations[selectedLanguage].FORM_Question }}
+      </label>
+      <textarea
+        #message="ngModel"
+        class="font-karla"
+        style="resize: none"
+        id="message"
+        name="message"
+        placeholder="{{ translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER }}"
+        [(ngModel)]="contactData.message"
+        minlength="15"
+        required
+      ></textarea>
+      <div class="error-message" *ngIf="message.invalid && message.touched">
+        <span class="error-text">
+          Please write at least 15 characters.
+        </span>
+      </div>
+    </div>
+
+    <!-- CHECKBOX AREA (PRIVACY) -->
+    <div
+      class="checkbox-area"
+      [class.checkbox-checked]="contactForm.form.valid"
+    >
+      <div class="privacy-content">
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="privacy"
+            name="privacy"
+            required
+            #privacy="ngModel"
+            [(ngModel)]="acceptTerms"
+          />
+          <label class="font-karla" for="privacy">
+            {{ translations[selectedLanguage].PRIVACY_POLICY }}
+          </label>
+        </div>
+
+        <!-- Privacy Error -->
+        <div class="error-message" *ngIf="privacy.invalid && privacy.touched">
+          <small class="error-text">
+            {{ translations[selectedLanguage].PRIVACY_ERROR }}
+          </small>
+        </div>
+      </div>
+
+      <!-- Terms Error (Example) -->
+      <div *ngIf="!contactForm.valid && contactForm.submitted">
+        <span class="error-text">
+          {{ translations[selectedLanguage].PRIVACY_ERROR }}
+        </span>
+      </div>
+
+      <!-- SUBMIT BUTTON -->
+      <div class="btn-area">
+        <button type="submit" class="btn-primary">
+          <span>{{ translations[selectedLanguage].SUBMIT_BUTTON }}</span>
+        </button>
+      </div>
+    </div>
+  </form>
 </section>
-
-<!-- new from section send message -->
-
-<!-- <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-  <label for="name">Name</label>
-  <input #name="ngModel" [(ngModel)]="contactData.name" type="text" id="name" name="name" placeholder="Your name" required>
-  @if (!name.valid && name.touched) {
-      <span>Please enter a name</span><br>
-  }
-
-
-  <label for="email">e-mail</label>
-  <input #email="ngModel"  [(ngModel)]="contactData.email" type="email" id="email" name="email" placeholder="Your email" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}">
-  @if (!email.valid && email.touched) {
-      <span>Please enter an e-mail address</span><br>
-  }
-
-
-  <label for="message">Subject</label>
-  <textarea #message="ngModel" minlength="4" [(ngModel)]="contactData.message" id="message" name="message" placeholder="Your message" required></textarea>
-  @if (!message.valid && message.touched) {
-      <span>Please enter a message</span><br>
-  }
-
-  <div class="checkbox-container">
-      <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
-      <label for="acceptTerms">I've read the <p>private policy</p> and agree to the processing of my data as outlined. </label>
-  </div>
-
-  <div *ngIf="!contactForm.valid">
-      <span>Please accept the terms and conditions</span><br>
-  </div>
-
-  <input type="submit" value="Send message" class="submit-button">
-</form> -->
