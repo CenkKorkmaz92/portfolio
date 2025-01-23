@@ -1,15 +1,19 @@
 import { Component, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LanguageService } from '../language.service';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, HttpClientModule],
+  // The critical part: make sure HttpClientModule is in the imports array.
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
@@ -56,23 +60,24 @@ export class ContactComponent {
   };
 
   // =============== New additions from your new code ===============
+  // Use Angular's "inject" function or the constructor injection—either is fine:
   http = inject(HttpClient);
 
-  // Bind these properties with [(ngModel)] in your template
+  // For template-driven form fields
   contactData = {
     name: '',
     email: '',
     message: '',
   };
 
-  // For the privacy checkbox in template-driven approach
+  // For the privacy checkbox
   acceptTerms = false;
 
-  // Toggle this to switch between test mode & real mode
+  // Toggle: true = test mode (no real HTTP post), false = live
   mailTest = true;
 
   post = {
-    endPoint: 'https://deinedomain.de/sendMail.php',
+    endPoint: 'http://cenk-korkmazcom/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
@@ -82,10 +87,9 @@ export class ContactComponent {
     },
   };
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService) { }
 
   ngOnInit(): void {
-    // keep your language subscription from old code
     this.languageService.language$.subscribe((lang) => {
       this.selectedLanguage = lang;
     });
@@ -95,11 +99,10 @@ export class ContactComponent {
     this.languageService.setLanguage(language);
   }
 
-  // =============== Updated onSubmit for template-driven ===============
   onSubmit(contactForm: NgForm) {
-    // Check if form is valid
+    // Ensure form is valid, then proceed
     if (contactForm.submitted && contactForm.form.valid && !this.mailTest) {
-      // Actually send the HTTP request
+      // Send the actual HTTP request
       this.http
         .post(
           this.post.endPoint,
@@ -109,7 +112,6 @@ export class ContactComponent {
         .subscribe({
           next: (response) => {
             console.log('Response', response);
-            // Reset the form
             contactForm.resetForm();
           },
           error: (error) => {
@@ -117,14 +119,14 @@ export class ContactComponent {
           },
           complete: () => console.info('send post complete'),
         });
+
     } else if (contactForm.submitted && contactForm.form.valid && this.mailTest) {
-      // Demo mode: no real request
-      console.log('mailTest=true. Not sending request. Resetting form...');
+      // Demo/test mode: no HTTP post
+      console.log('mailTest=true. Skipping request. Resetting form...');
       contactForm.resetForm();
     } else {
-      // Form invalid -> show validation errors
-      console.log('Form invalid or not submitted yet');
-      // contactForm.form.markAllAsTouched(); // optional if you want to forcibly display errors
+      // Form invalid: show validation errors
+      console.log('Form is invalid or not yet submitted');
     }
   }
 }
