@@ -12,7 +12,7 @@ import { LanguageService } from '../language.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
@@ -74,10 +74,10 @@ export class ContactComponent {
   acceptTerms = false;
 
   // Toggle: true = test mode (no real HTTP post), false = live
-  mailTest = true;
+  mailTest = false;
 
   post = {
-    endPoint: 'http://cenk-korkmazcom/sendMail.php',
+    endPoint: 'https://cenk-korkmaz.com/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
