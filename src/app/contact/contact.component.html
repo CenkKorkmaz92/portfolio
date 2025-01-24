@@ -10,6 +10,13 @@
     </span>
   </div>
 
+<!-- pop-up send mail successfull -->
+  <div 
+  class="success-popup" 
+  *ngIf="showSuccessPopup">
+  Mail has been sent successfully.
+  </div>
+
   <!-- 
     NEW template-driven form
     (Uses contactForm="ngForm" and ngModel)
@@ -115,17 +122,21 @@
       </div>
 
       <!-- Terms Error (Example) -->
-      <div *ngIf="!contactForm.valid && contactForm.submitted">
+      <!-- <div *ngIf="!contactForm.valid && contactForm.submitted">
         <span class="error-text">
           {{ translations[selectedLanguage].PRIVACY_ERROR }}
         </span>
-      </div>
+      </div> -->
 
       <!-- SUBMIT BUTTON -->
       <div class="btn-area">
-        <button type="submit" class="btn-primary">
-          <span>{{ translations[selectedLanguage].SUBMIT_BUTTON }}</span>
-        </button>
+        <button 
+        type="submit" 
+        class="btn-primary" 
+        [class.btn-disabled]="!acceptTerms" 
+        [disabled]="!acceptTerms">
+        <span>{{ translations[selectedLanguage].SUBMIT_BUTTON }}</span>
+      </button>
       </div>
     </div>
   </form>

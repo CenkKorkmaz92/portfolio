@@ -60,11 +60,12 @@
 
 .error-message {
     margin-top: 5px;
+
 }
 
 .error-text {
     color: #ff4b4b;
-    font-size: 0.875rem;
+    font-size: 14px !important;
     font-family: 'Karla', sans-serif;
 }
 
@@ -166,7 +167,26 @@
     overflow: hidden;
     position: relative;
     width: 172px;
-}
+  
+    &:hover {
+      border-color: rgba(61, 207, 182, 1);
+      color: rgba(61, 207, 182, 1);
+    }
+  }
+  
+  .btn-disabled {
+    // background: #b3b3b3; /* Graue Hintergrundfarbe */
+    border: 1px solid #999; /* Grauer Rahmen */
+    color: #666; /* Graue Schrift */
+    cursor: not-allowed;
+  
+    /* Verhindert Hover-Effekte */
+    &:hover {
+      background: #b3b3b3;
+      border: 1px solid #999;
+      color: #666;
+    }
+  }
 
 .btn-primary:hover {
     border-color: rgba(61, 207, 182, 1);
@@ -264,6 +284,37 @@ h2 {
         color: white;
     }
 }
+
+
+.success-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #00ffcc;
+    color: #fff;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: fade-in-out 3s ease-in-out;
+  }
+  
+  @keyframes fade-in-out {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    10%, 90% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
 
 @media (max-width: 1440px) {
     .contact {

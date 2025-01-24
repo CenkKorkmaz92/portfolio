@@ -53,7 +53,7 @@ export class ContactComponent {
       FORM_Question: 'Wie kann ich Ihnen helfen?',
       FORM_QUESTION_PLACEHOLDER: 'Hallo, ich interessiere mich für...',
       PRIVACY_POLICY:
-        'Ich habe die Datenschutzrichtlinie gelesen ...',
+        'Ich habe die Datenschutzrichtlinie gelesen',
       PRIVACY_ERROR: 'Bitte akzeptieren Sie die Datenschutzrichtlinie.',
       SUBMIT_BUTTON: 'Sag Hallo :)',
     },
@@ -99,10 +99,11 @@ export class ContactComponent {
     this.languageService.setLanguage(language);
   }
 
+  showSuccessPopup = false;
+
   onSubmit(contactForm: NgForm) {
-    // Ensure form is valid, then proceed
     if (contactForm.submitted && contactForm.form.valid && !this.mailTest) {
-      // Send the actual HTTP request
+      // Senden der tatsächlichen Anfrage
       this.http
         .post(
           this.post.endPoint,
@@ -113,20 +114,27 @@ export class ContactComponent {
           next: (response) => {
             console.log('Response', response);
             contactForm.resetForm();
+            this.displaySuccessPopup(); // Pop-up anzeigen
           },
           error: (error) => {
             console.error(error);
           },
           complete: () => console.info('send post complete'),
         });
-
     } else if (contactForm.submitted && contactForm.form.valid && this.mailTest) {
-      // Demo/test mode: no HTTP post
       console.log('mailTest=true. Skipping request. Resetting form...');
       contactForm.resetForm();
+      this.displaySuccessPopup(); // Pop-up auch im Testmodus anzeigen
     } else {
-      // Form invalid: show validation errors
       console.log('Form is invalid or not yet submitted');
     }
+  }
+
+  // Funktion zum Anzeigen des Pop-ups
+  displaySuccessPopup() {
+    this.showSuccessPopup = true; // Pop-up aktivieren
+    setTimeout(() => {
+      this.showSuccessPopup = false; // Nach 3 Sekunden deaktivieren
+    }, 3000);
   }
 }
