@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case ("OPTIONS"): //Allow preflighting to take place.
@@ -17,21 +17,21 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $email = $params->email;
             $name = $params->name;
             $message = $params->message;
-            // change her your mail address
-            $recipient = 'Cenk.Korkmaz92@gmail.com';  
+    
+            $recipient = 'cenk.korkmaz92@gmail.com';  
             $subject = "Contact From <$email>";
-            $message = "From:" . $name . "<br>" . $message ;
+            $message = "From: " . $name . "<br><br>" . $message;
     
             $headers   = array();
             $headers[] = 'MIME-Version: 1.0';
             $headers[] = 'Content-type: text/html; charset=utf-8';
 
             // Additional headers
-            $headers[] = "From: noreply@mywebsite.com";
+            $headers[] = "From: cenk.korkmaz92@gmail.com";
 
             mail($recipient, $subject, $message, implode("\r\n", $headers));
             break;
         default: //Reject any non POST or OPTIONS requests.
             header("Allow: POST", true, 405);
             exit;
-    }  -->
+    } 
