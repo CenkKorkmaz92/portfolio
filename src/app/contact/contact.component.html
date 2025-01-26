@@ -10,43 +10,22 @@
     </span>
   </div>
 
-<!-- pop-up send mail successfull -->
-  <div 
-  class="success-popup" 
-  *ngIf="showSuccessPopup">
-  Mail has been sent successfully.
+  <!-- pop-up send mail successfully -->
+  <div class="success-popup" *ngIf="showSuccessPopup">
+    {{ translations[selectedLanguage].MAIL_SUCCESS }}
   </div>
 
-  <!-- 
-    NEW template-driven form
-    (Uses contactForm="ngForm" and ngModel)
-  -->
-  <form 
-    class="form-container"
-    (ngSubmit)="onSubmit(contactForm)" 
-    #contactForm="ngForm"
-  >
-
+  <!-- Contact Form -->
+  <form class="form-container" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
     <!-- NAME FIELD -->
     <div class="single-input-frame">
       <label for="name" class="font-fira">
         {{ translations[selectedLanguage].FORM_NAME }}
       </label>
-      <input
-        #name="ngModel"
-        class="font-karla"
-        type="text"
-        id="name"
-        name="name"
-        placeholder="{{ translations[selectedLanguage].FORM_NAME_PLACEHOLDER }}"
-        [(ngModel)]="contactData.name"
-        required
-      />
-      <div class="error-message" *ngIf="name.invalid && name.touched">
-        <span class="error-text">
-          {{ translations[selectedLanguage].FORM_NAME_PLACEHOLDER }}
-        </span>
-      </div>
+      <input #name="ngModel" class="font-karla" type="text" id="name" name="name"
+        [placeholder]="name.invalid && name.touched ? translations[selectedLanguage].FORM_NAME_ERROR : translations[selectedLanguage].FORM_NAME_PLACEHOLDER"
+        [(ngModel)]="contactData.name" [ngStyle]="{ 'color': name.invalid && name.touched ? '#ff4b4b' : '' }"
+        minlength="2" required />
     </div>
 
     <!-- EMAIL FIELD -->
@@ -54,60 +33,29 @@
       <label for="email" class="font-fira">
         {{ translations[selectedLanguage].FORM_MAIL }}
       </label>
-      <input
-        #email="ngModel"
-        class="font-karla"
-        type="email"
-        id="email"
-        name="email"
-        placeholder="{{ translations[selectedLanguage].FORM_EMAIL_PLACEHOLDER }}"
-        [(ngModel)]="contactData.email"
-        required
-        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-      />
-      <div class="error-message" *ngIf="email.invalid && email.touched">
-        <span class="error-text">Invalid email format. Please enter a valid email.</span>
-      </div>
+      <input #email="ngModel" class="font-karla" type="email" id="email" name="email"
+        [placeholder]="email.invalid && email.touched ? translations[selectedLanguage].FORM_EMAIL_ERROR : translations[selectedLanguage].FORM_EMAIL_PLACEHOLDER"
+        [(ngModel)]="contactData.email" [ngStyle]="{ 'color': email.invalid && email.touched ? '#ff4b4b' : '' }"
+        required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" />
     </div>
 
     <!-- MESSAGE FIELD -->
     <div class="single-input-frame">
       <label for="message" class="font-fira">
-        {{ translations[selectedLanguage].FORM_Question }}
+        {{ translations[selectedLanguage].FORM_QUESTION }}
       </label>
-      <textarea
-        #message="ngModel"
-        class="font-karla"
-        style="resize: none"
-        id="message"
-        name="message"
-        placeholder="{{ translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER }}"
-        [(ngModel)]="contactData.message"
-        minlength="15"
-        required
-      ></textarea>
-      <div class="error-message" *ngIf="message.invalid && message.touched">
-        <span class="error-text">
-          Please write at least 15 characters.
-        </span>
-      </div>
+      <textarea #message="ngModel" class="font-karla" style="resize: none" id="message" name="message"
+        [placeholder]="message.invalid && message.touched ? translations[selectedLanguage].FORM_MESSAGE_ERROR : translations[selectedLanguage].FORM_QUESTION_PLACEHOLDER"
+        [(ngModel)]="contactData.message" [ngStyle]="{ 'color': message.invalid && message.touched ? '#ff4b4b' : '' }"
+        minlength="15" required></textarea>
     </div>
 
+
     <!-- CHECKBOX AREA (PRIVACY) -->
-    <div
-      class="checkbox-area"
-      [class.checkbox-checked]="contactForm.form.valid"
-    >
+    <div class="checkbox-area" [class.checkbox-checked]="contactForm.form.valid">
       <div class="privacy-content">
         <div class="checkbox-container">
-          <input
-            type="checkbox"
-            id="privacy"
-            name="privacy"
-            required
-            #privacy="ngModel"
-            [(ngModel)]="acceptTerms"
-          />
+          <input type="checkbox" id="privacy" name="privacy" required #privacy="ngModel" [(ngModel)]="acceptTerms" />
           <label class="font-karla" for="privacy">
             {{ translations[selectedLanguage].PRIVACY_POLICY }}
           </label>
@@ -121,22 +69,11 @@
         </div>
       </div>
 
-      <!-- Terms Error (Example) -->
-      <!-- <div *ngIf="!contactForm.valid && contactForm.submitted">
-        <span class="error-text">
-          {{ translations[selectedLanguage].PRIVACY_ERROR }}
-        </span>
-      </div> -->
-
       <!-- SUBMIT BUTTON -->
       <div class="btn-area">
-        <button 
-        type="submit" 
-        class="btn-primary" 
-        [class.btn-disabled]="!acceptTerms" 
-        [disabled]="!acceptTerms">
-        <span>{{ translations[selectedLanguage].SUBMIT_BUTTON }}</span>
-      </button>
+        <button type="submit" class="btn-primary" [class.btn-disabled]="!acceptTerms" [disabled]="!acceptTerms">
+          <span>{{ translations[selectedLanguage].SUBMIT_BUTTON }}</span>
+        </button>
       </div>
     </div>
   </form>
