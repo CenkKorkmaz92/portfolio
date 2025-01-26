@@ -18,27 +18,27 @@ export class ImprintComponent implements OnInit {
       heading2: 'Information acc. to § 5 TMG',
       block2: `
         <p>
-          Philipp Schönborn<br>
-          Baumschulenring 26<br>
-          72202 Nagold
+          Cenk Korkmaz<br>
+          Kleinhöchbergerstr. 45<br>
+          71560 Sulzbach an der Murr
         </p>
       `,
       heading3: 'Contact',
       block3: `
         <p>
-          Phone: +49 (0) 176 306 785 30<br>
+          Phone: +49 (0) 15734376057<br>
           Email:
-          <a href="mailto:philipp@schoenborn-home.de">
-            philipp&#64;schoenborn-home.de
+          <a href="mailto:Cenk.Korkmaz92@gmail.com">
+            Cenk.Korkmaz92&#64;gmail.com
           </a>
         </p>
       `,
       heading4: 'Editorially Responsible',
       block4: `
         <p>
-          Philipp Schönborn<br>
-          Baumschulenring 26<br>
-          72202 Nagold
+          Cenk Korkmaz<br>
+          Kleinhöchbergerstr. 45<br>
+          71560 Sulzbach an der Murr
         </p>
       `,
       block5: `
@@ -57,27 +57,27 @@ export class ImprintComponent implements OnInit {
       heading2: 'Angaben gemäß § 5 TMG',
       block2: `
         <p>
-          Philipp Schönborn<br>
-          Baumschulenring 26<br>
-          72202 Nagold
+          Cenk Korkmaz<br>
+          Kleinhöchbergerstr. 45<br>
+          71560 Sulzbach an der Murr
         </p>
       `,
       heading3: 'Kontakt',
       block3: `
         <p>
-          Telefon: +49 (0) 176 306 785 30<br>
+          Telefon: +49 (0) 15734376057<br>
           E-Mail:
-          <a href="mailto:philipp@schoenborn-home.de">
-            philipp&#64;schoenborn-home.de
+          <a href="mailto:Cenk.Korkmaz92@gmail.com">
+            Cenk.Korkmaz92&#64;gmail.com
           </a>
         </p>
       `,
       heading4: 'Redaktionell verantwortlich',
       block4: `
         <p>
-          Philipp Schönborn<br>
-          Baumschulenring 26<br>
-          72202 Nagold
+          Cenk Korkmaz<br>
+          Kleinhöchbergerstr. 45<br>
+          71560 Sulzbach an der Murr
         </p>
       `,
       block5: `
