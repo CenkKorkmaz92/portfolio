@@ -74,6 +74,7 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
+    padding-top: 20px;
     width: 616px;
     gap: 40px;
 
@@ -109,7 +110,6 @@
 .checkbox-container label {
     position: relative;
     padding-left: 44px;
-    padding-top: 20px;
     line-height: 24px;
     user-select: none;
     color: #fff;
@@ -295,7 +295,7 @@ h2 {
     right: 20px;
     padding: 10px 20px;
     background-color: #00ffcc;
-    color: #fff;
+    color: rgb(28, 28, 28);
     font-family: 'Karla', sans-serif;
     font-size: 16px;
     border-radius: 4px;
